@@ -3,9 +3,10 @@ import DoctorCmd
 import discord
 import asyncio
 import urllib.request
+import os
 
 # discord bot token
-token = "NTU0MjA4NjgyMTI5NDg5OTUx.D2c8mA.IWloQgOx-0UNrE936N17xvM58Eo"
+token = os.environ('BOT_TOKEN")
 
 #discord client ref
 app = discord.Client()
