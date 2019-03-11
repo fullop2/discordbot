@@ -1,6 +1,6 @@
 import urllib.request
-
-lolApiKey = "?api_key=RGAPI-e37fe8bf-60ec-4661-a787-8a00593628d3"
+import os
+lolApiKey = os.environ('LOL_TOKEN')
 lolApiUrl = "https://kr.api.riotgames.com/"
 
 # request URL
