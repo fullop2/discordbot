@@ -6,7 +6,7 @@ import urllib.request
 import os
 
 # discord bot token
-token = os.environ('BOT_TOKEN")
+token = os.environ('BOT_TOKEN')
 
 #discord client ref
 app = discord.Client()
