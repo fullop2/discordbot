@@ -1,6 +1,6 @@
 import urllib.request
 import os
-lolApiKey = os.environ('LOL_TOKEN')
+lolApiKey = os.environ['LOL_TOKEN']
 lolApiUrl = "https://kr.api.riotgames.com/"
 
 # request URL
