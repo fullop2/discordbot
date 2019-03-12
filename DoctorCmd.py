@@ -18,4 +18,4 @@ def identify(msg):
 
 # print command
 def GetCmd():
-    return "명령어 목록 -cmd \n협곡 전설 명령어 : -rank -info -mastery \n의사양반 명령어 : (전화 갖다), (여기가 어디오), (아래 감각), (무슨 소리), (이보시요 의사양반)\n괄호 안 두 단어를 동시에 사용하면 전화를 받습니다"
+    return "명령어 목록 -cmd \n협곡 전설 명령어 : -rank -info -mastery \n의사양반 명령어 : (전화 갖다), (여기가 어디오), (아래 감각), (무슨 소리), (의사양반)\n괄호 안 두 단어를 동시에 사용하면 전화를 받습니다"
