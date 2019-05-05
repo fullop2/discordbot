@@ -10,10 +10,10 @@ def timecalcTime(t):
     return t.hour * 3600 + t.minute * 60 + t.second
 
 def getnow():
-    return datetime.datetime.now()
+    return datetime.datetime.utcnow() + datetime.timedelta(hours=9)
 
 def getnowweekday():
-    return datetime.datetime.now().weekday()
+    return (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).weekday()
 
 def gettime(sec):
     return str(datetime.timedelta(seconds = sec))
