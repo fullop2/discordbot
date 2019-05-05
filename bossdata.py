@@ -1,7 +1,7 @@
 import timefunc
 import os
 
-IMGDIR = 'https://raw.githubusercontent.com/fullop2/discordbot/master/pic/'#os.environ['IMGDIR']
+os.environ['IMGDIR']
 
 timeTable =[
  [timefunc.timecalcHM(2,0),timefunc.timecalcHM(11,0),timefunc.timecalcHM(16,0),timefunc.timecalcHM(20,0),timefunc.timecalcHM(23,45),timefunc.timecalcHM(26,0)],

@@ -7,7 +7,7 @@ import os
 
 print(discord.__version__)
 # discord bot token
-token = 'NTU0MjA4NjgyMTI5NDg5OTUx.XM5Xpg.toENs0OM-Z-QVx4iNlCQe6XVdNo'#os.environ['BOT_TOKEN']
+os.environ['BOT_TOKEN']
 
 #discord client ref
 app = discord.Client()
@@ -17,7 +17,6 @@ flag = False
 # alram function
 async def runalram(message):
     global flag
-    print(flag)
 
     while flag:
         delay = await bossalram.calcalramtime()
@@ -25,7 +24,7 @@ async def runalram(message):
         bosslist = await alram(discord,message)
         for emb in alram(dis,message):
             await message.channel.send(embed = emb) 
-        await asyncio.sleep(delay[1])
+        await asyncio.sleep(delay[1]+10)
         
 # initialize
 @app.event
@@ -47,7 +46,6 @@ async def on_message(message):
     if args[0].startswith('-'):
         if 'on' in args[0] :
             flag = True
-            print('on')
             await runalram(message)
             return
         if 'off' in args[0] :
