@@ -6,7 +6,7 @@ def identify(msg):
                 + ' 조금만 늦었어도 큰일날 뻔했습니다. 아… 전화는 몸에 해로우니까, 그냥 푹 쉬세요.'
     elif '여기가' in msg and '어디오' in msg:
         rtMsg = '아, 병원이오. 안심하세요. 어… 지혈제를 썼고 응급 수술을 했어요. 피를 너무 많이 흘려서, 이거 하마터면 큰일날 뻔했습니다.'
-    elif '아래' in msg or '아랫' in msg and '감각' in msg:
+    elif ('아래' in msg or '아랫' in msg) and '감각' in msg:
         rtMsg = '어… 하필이면… 총알이 영 좋지 않은 곳에 맞았어요.'
     elif '무슨' in msg and '소리' in msg:
         rtMsg = '어… 어느 정도 완쾌된 뒤에 말해 주려고 했는데… 잘 알아 두세요.'\
@@ -17,5 +17,6 @@ def identify(msg):
     return rtMsg
 
 # print command
-def GetCmd():
-    return "명령어 목록 -cmd \n협곡 전설 명령어 : -rank -info -mastery \n의사양반 명령어 : (전화 갖다), (여기가 어디오), (아래 감각), (무슨 소리), (의사양반)\n괄호 안 두 단어를 동시에 사용하면 전화를 받습니다"
+def GetDocTalk():
+    return  "의사양반 명령어 : (전화 갖다), (여기가 어디오), (아래 감각), (무슨 소리), (의사양반)\n"+\
+            "괄호 안 두 단어를 동시에 사용하면 전화를 받습니다"
