@@ -1,7 +1,7 @@
 import timefunc
 import os
 
-os.environ['IMGDIR']
+imgdir = os.environ['IMGDIR']
 
 timeTable =[
  [timefunc.timecalcHM(2,0),timefunc.timecalcHM(11,0),timefunc.timecalcHM(16,0),timefunc.timecalcHM(20,0),timefunc.timecalcHM(23,45),timefunc.timecalcHM(26,0)],
@@ -23,15 +23,15 @@ boss =[
  [['카란다','누베르'],['누베르','쿠툼'],['카란다','크자카'],['귄트','무라카'],['가모스']],
  [['가모스'],['카란다','쿠툼'],['크자카','누베르'],['카란다','쿠툼'],['벨'],['누베르','쿠툼'],['카란다'],['크자카']]]
 
-img = {'누베르' : IMGDIR +'Nouver.png',
-       '무라카' : IMGDIR +'Muraka.png',
-       '카란다' : IMGDIR +'Karanda.png',
-       '벨'     : IMGDIR +'Vell.png',
-       '오핀'   : IMGDIR +'Offin.png',
-       '쿠툼'   : IMGDIR +'Kutum.png',
-       '크자카' : IMGDIR +'Kzarka.png',
-       '가모스' : IMGDIR +'Garmoth.png',
-       '귄트'   : IMGDIR +'Quint.png'}
+img = {'누베르' : imgdir +'Nouver.png',
+       '무라카' : imgdir +'Muraka.png',
+       '카란다' : imgdir +'Karanda.png',
+       '벨'     : imgdir +'Vell.png',
+       '오핀'   : imgdir +'Offin.png',
+       '쿠툼'   : imgdir +'Kutum.png',
+       '크자카' : imgdir +'Kzarka.png',
+       '가모스' : imgdir +'Garmoth.png',
+       '귄트'   : imgdir +'Quint.png'}
 
 weekdayChar = ['월','화','수','목','금','토','일']
 
