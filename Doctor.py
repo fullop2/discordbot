@@ -22,7 +22,7 @@ async def runalram(message):
         delay = await bossalram.calcalramtime()
         await asyncio.sleep(delay[0])
         bosslist = await bossalram.alram(discord,message)
-        for emb in alram(dis,message):
+        for emb in bosslist:
             await message.channel.send(embed = emb) 
         await asyncio.sleep(delay[1]+10)
         
