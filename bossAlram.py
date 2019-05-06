@@ -14,21 +14,8 @@ def calcAlramTime():
     bosstime = getAlramTime(info[0],info[1])
     alramtime = getAlramBeforeTime(info[0],info[1])
     nowsec = timeCalcTime(now.time())
-    print('-------')
-    print(bosstime)
-    print(alramtime)
-    print(nowsec)
-    print('-------')
     if info[0] != wd:
         bosstime  =  bosstime+ (86400 * abs(info[0] - wd))
-    print('-------')
-    print(bosstime)
-    print(alramtime)
-    print(nowsec)
-    print('-------')
-    print(bosstime-alramtime*60-nowsec)
-    print(alramtime*60)
-    print('-------')
     return [bosstime-alramtime*60-nowsec,alramtime*60]
 
 def getBossAllState(discord):
@@ -49,7 +36,7 @@ def alram(discord):
         nowSec = timeCalcTime(now.time())
 
         if info[0] != wd:
-            bosstime  =  bosstime + (86400 * abs(info[0] - wd))
+            bossTime  =  bossTime + (86400 * abs(info[0] - wd))
         leftTime = ((bossTime - nowSec) - ((bossTime - nowSec) % 60) + 60)
         bossNames = ""
         for oneboss in bossName :
