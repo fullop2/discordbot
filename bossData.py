@@ -7,7 +7,7 @@ imgdir = os.environ['IMGDIR']
 bossName = ['누베르','무라카','카란다','벨','오핀','쿠툼','크자카','가모스','귄트']
 
 timeTable =[
- [timeCalcHM(2,0),timeCalcHM(11,0),timeCalcHM(16,0),timeCalcHM(20,0),timeCalcHM(23,45)],
+ [timeCalcHM(22,55),timeCalcHM(22,57),timeCalcHM(22,59),timeCalcHM(23,1),timeCalcHM(23,30)],
  [timeCalcHM(2,0),timeCalcHM(11,0),timeCalcHM(16,0),timeCalcHM(20,0),timeCalcHM(23,45)],
  [timeCalcHM(2,0),timeCalcHM(16,0),timeCalcHM(20,0),timeCalcHM(23,15),timeCalcHM(23,45)],
  [timeCalcHM(2,0),timeCalcHM(11,0),timeCalcHM(16,0),timeCalcHM(20,0),timeCalcHM(23,45)],
@@ -15,7 +15,7 @@ timeTable =[
  [timeCalcHM(2,0),timeCalcHM(11,0),timeCalcHM(16,0),timeCalcHM(19,0)],
  [timeCalcHM(0,15),timeCalcHM(2,0),timeCalcHM(11,0),timeCalcHM(16,0),timeCalcHM(17,0),timeCalcHM(20,0),timeCalcHM(23,45)]]
 
-alramTable=[[20,20,20,20,20],[20,20,20,20,20],[20,20,20,20,20],[20,20,20,20,20],[20,20,20,20,20],[20,20,20,20,20],[20,20,20,20,40,20]]
+alramTable=[[1,1,1,1,1],[20,20,20,20,20],[20,20,20,20,20],[20,20,20,20,20],[20,20,20,20,20],[20,20,20,20,20],[20,20,20,20,40,20]]
 
 boss =[
  [['크자카'],['크자카','누베르'],['크자카','쿠툼'],['카란다','누베르'],['오핀']],

@@ -8,18 +8,34 @@ def calcAlramTime():
     info = getAlramIndex(wd,now)
 
     if len(info) == 0 :
+        print(info)
         return -1
-    
+
     bosstime = getAlramTime(info[0],info[1])
     alramtime = getAlramBeforeTime(info[0],info[1])
     nowsec = timeCalcTime(now.time())
+    print('-------')
+    print(bosstime)
+    print(alramtime)
+    print(nowsec)
+    print('-------')
+    if info[0] != wd:
+        bosstime  =  bosstime+ (86400 * abs(info[0] - wd))
+    print('-------')
+    print(bosstime)
+    print(alramtime)
+    print(nowsec)
+    print('-------')
+    print(bosstime-alramtime*60-nowsec)
+    print(alramtime*60)
+    print('-------')
     return [bosstime-alramtime*60-nowsec,alramtime*60]
 
 def getBossAllState(discord):
     emb = discord.Embed(title='보스 상태', description=getStateString(), color=0x0F00FF)
     return emb
 
-def alram(discord, message):
+def alram(discord):
 
     now = getNow()
     wd = getNowWeekday()
@@ -31,7 +47,7 @@ def alram(discord, message):
         bossTime = getAlramTime(info[0],info[1])
         bossName = getAlramName(info[0],info[1])
         nowSec = timeCalcTime(now.time())
-        leftTime = ((bossTime - nowSec) - (bossTime - nowSec) % 60)
+        leftTime = ((bossTime - nowSec) - ((bossTime - nowSec) % 60) + 60)
         bossNames = ""
         for oneboss in bossName :
                 bossNames += (oneboss + ' ')
@@ -63,8 +79,10 @@ def getValidBossName(name):
         
 def enableBossAlram(name):
     enableBoss[name] = True
+    return name +'의 알림이 설정되었습니다'
 
 def disableBossAlram(name):
     enableBoss[name] = False
+    return name + '의 알림이 종료되었습니다'
 
-
+personList = {}

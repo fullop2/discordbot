@@ -12,6 +12,8 @@ enableBoss = {
        '가모스' : True,
        '귄트'   : True}
 
+enableDict = enableBoss.copy()
+
 def getImage(name):
     return img[name]
 
@@ -19,12 +21,6 @@ def getColor(name):
     return colors[name]
 
 def getAlramIndex(weekday,now):
-
-    for bos in bossName:
-        if enableBoss[bos]:
-            continue
-        else:
-            return []
     
     index = getStartIndex(weekday,now)
     i = 0;

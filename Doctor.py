@@ -1,5 +1,6 @@
 from doctorMsg import *
 from bossAlram import *
+from userFunc import *
 
 import discord
 import asyncio
@@ -21,9 +22,14 @@ async def runAlram(message):
     while flag:
         delay = calcAlramTime()
         await asyncio.sleep(delay[0])
-        bosslist = alram(discord,message)
-        await message.channel.send(embed = bosslist) 
-        await asyncio.sleep(delay[1]+10)
+        userlist = getMentionUser()
+        print(userlist)
+        if len(userlist) > 0:
+            await message.channel.send(str(userlist))
+            bosslist = alram(discord)
+            await message.channel.send(embed = bosslist)
+            print('out sleep')
+        await asyncio.sleep(delay[1]+1)
         
 # initialize
 @app.event
@@ -62,20 +68,35 @@ async def on_message(message):
                     else:
                         rtMsg = timeCmdMsg()
             else:
-                bosslist = alram(discord,message)
+                bosslist = alram(discord)
                 await message.channel.send(embed = bosslist)
         elif 'en' == cmd :
             if len(args) == 2 and getValidBossName(args[1]):
-                enableBossAlram(args[1])
-                await message.channel.send(args[1]+'의 알림이 설정되었습니다')
+                rtMsg = enableBossAlram(args[1])
             else:
-                await message.channel.send(enableErrorMsg())
+                rtMsg = enableErrorMsg()
         elif 'dis' == cmd :
             if len(args) == 2  and getValidBossName(args[1]):
-                disableBossAlram(args[1])
-                await message.channel.send(args[1]+'의 알림이 종료되었습니다')
+                rtMsg = disableBossAlram(args[1])
             else:
-                await message.channel.send(disableErrorMsg())        
+                rtMsg = disableErrorMsg()
+                
+        elif 'enur' == cmd :
+            if len(args) == 2 and getValidBossName(args[1]):
+                rtMsg = enableUserBossAlram(message.author,args[1])
+            else:
+                await message.channel.send(enableCmdMsg())
+        elif 'disur' == cmd :
+            if len(args) == 2  and getValidBossName(args[1]):
+                rtMsg = disableUserBossAlram(message.author,args[1])
+            else:
+                await message.channel.send(disableCmdMsg())
+        elif 'statur' == cmd :
+            rtMsg = getUserStatus(message.author,discord)                
+        elif 'reg' == cmd :
+            rtMsg = registerUser(message.author)
+        elif 'rm' == cmd :
+            rtMsg = removeUser(message.author)              
         elif 'status' == cmd :
             await message.channel.send(embed = getBossAllState(discord))                                       
         else:
