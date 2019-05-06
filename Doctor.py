@@ -7,7 +7,7 @@ import os
 
 print(discord.__version__)
 # discord bot token
-tokne = os.environ['BOT_TOKEN']
+token = os.environ['BOT_TOKEN']
 
 #discord client ref
 app = discord.Client()
