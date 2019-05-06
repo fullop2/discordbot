@@ -47,6 +47,9 @@ def alram(discord):
         bossTime = getAlramTime(info[0],info[1])
         bossName = getAlramName(info[0],info[1])
         nowSec = timeCalcTime(now.time())
+
+        if info[0] != wd:
+            bosstime  =  bosstime + (86400 * abs(info[0] - wd))
         leftTime = ((bossTime - nowSec) - ((bossTime - nowSec) % 60) + 60)
         bossNames = ""
         for oneboss in bossName :
