@@ -1,3 +1,4 @@
+from iBossData import *
 
 def identify(msg):
     rtMsg = ""
@@ -17,6 +18,25 @@ def identify(msg):
     return rtMsg
 
 # print command
-def GetDocTalk():
+def doctorMsg():
     return  "의사양반 명령어 : (전화 갖다), (여기가 어디오), (아래 감각), (무슨 소리), (의사양반)\n"+\
-            "괄호 안 두 단어를 동시에 사용하면 전화를 받습니다"
+            "괄호 안 두 단어를 동시에 사용하면 전화를 받습니다\n\n"
+
+timeMsg = '-time 다음 보스 출현 시간을 알려줍니다\n -time (보스명) 보스의 모든 출현 시간을 알려줍니다\n보스 목록\n'
+enMsg = '-en (보스명) : 보스 알을 설정합니다\n보스 목록\n'
+disMsg = '-dis (보스명) : 보스 알림을 해제합니다\n보스 목록\n'
+
+def timeCmdMsg():
+    return timeMsg +getBossNameString()
+
+def enableCmdMsg():
+    return enMsg + getStateString()
+
+def disableCmdMsg():
+    return disMsg + getStateString()
+
+def blackDesertCmdMsg():
+    return '명령어 목록\n'+timeMsg+enMsg+disMsg+getStateString()
+
+def allMsg():
+    return doctorMsg() + blackDesertCmdMsg()
