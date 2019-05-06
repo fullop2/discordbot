@@ -6,6 +6,10 @@ def calcAlramTime():
     wd = getNowWeekday()
 
     info = getAlramIndex(wd,now)
+
+    if len(info) == 0 :
+        return -1
+    
     bosstime = getAlramTime(info[0],info[1])
     alramtime = getAlramBeforeTime(info[0],info[1])
     nowsec = timeCalcTime(now.time())
