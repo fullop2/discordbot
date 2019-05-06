@@ -1,7 +1,7 @@
 from timeFunc import *
 import os
 
-imgdir = os.environ['BOT_TOKEN']
+imgdir = os.environ['IMGDIR']
 
 
 bossName = ['누베르','무라카','카란다','벨','오핀','쿠툼','크자카','가모스','귄트']
