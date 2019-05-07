@@ -127,7 +127,7 @@ async def on_message(message):
                 rtMsg.description = cmdListMsg
         # 개인 보스 알림 설정 확인        
         elif 'stat' == cmd :
-            rtMsg.description = string_getUserStatus(message.author,discord)
+            rtMsg.description = string_getUserStatus(message.author)
         # 개인 정보 등록
         elif 'reg' == cmd :
             rtMsg.description = string_registerUser(message.author)
@@ -140,9 +140,8 @@ async def on_message(message):
         # 명령어 목록 출력
         else:
             rtMsg.description = string_all()
+        await message.channel.send(embed = rtMsg)  
     else:
-        rtMsg.description = identify(str(message.content))
-    if rtMsg.description != '':
-        await message.channel.send(embed = rtMsg)    
+        await message.channel.send(identify(str(message.content))) 
 
 app.run(token)
