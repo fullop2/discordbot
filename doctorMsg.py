@@ -1,4 +1,4 @@
-from iBossData import *
+from bossAlarmFunc import *
 
 def identify(msg):
     rtMsg = ""
@@ -19,24 +19,29 @@ def identify(msg):
 
 # print command
 def doctorMsg():
-    return  "의사양반 명령어 : (전화 갖다), (여기가 어디오), (아래 감각), (무슨 소리), (의사양반)\n"+\
+    return  "의사양반 명령어\n전화, 갖다\n여기가, 어디오\n아래(아랫), 감각\n무슨, 소리\n의사양반\n"+\
             "괄호 안 두 단어를 동시에 사용하면 전화를 받습니다\n\n"
 
-timeMsg = '-time 다음 보스 출현 시간을 알려줍니다\n -time (보스명) 보스의 모든 출현 시간을 알려줍니다\n보스 목록\n'
-enMsg = '-en (보스명) : 보스 알을 설정합니다\n보스 목록\n'
-disMsg = '-dis (보스명) : 보스 알림을 해제합니다\n보스 목록\n'
+cmdListMsg = '검은사막 알림 명령어 목록\n\
+-reg : 등록\n\
+-rm : 삭제\n\
+-en (보스명) : 해당 보스 알림 설정\n\
+-dis (보스명) : 해당 보스 알림 해제\n\
+-time : 다음 보스 출현 시간\n\
+-time (보스명) : 보스 출현 전체 시간\n\
+-stat : 자신의 알람 설정 확인\n\
+<관리자 명령어>\n\
+-enall (보스명) : 보스 알림 전체 설정\n\
+-disall (보스명) : 보스 알림 전체 해제\n\
+-statall : 전체 보스 알림 확인'
 
-def timeCmdMsg():
-    return timeMsg +getBossNameString()
+noPhoneMsg = '전화는 없습니다'
+def string_all():
+    return doctorMsg() + cmdListMsg + '\n\n' + noPhoneMsg
 
-def enableCmdMsg():
-    return enMsg + getStateString()
 
-def disableCmdMsg():
-    return disMsg + getStateString()
+def string_onTimer():
+    return '타이머 작동을 시작합니다'
 
-def blackDesertCmdMsg():
-    return '명령어 목록\n'+timeMsg+enMsg+disMsg+getStateString()
-
-def allMsg():
-    return doctorMsg() + blackDesertCmdMsg()
+def string_offTimer():
+    return '타이머를 종료합니다'

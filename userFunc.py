@@ -1,63 +1,49 @@
-from iBossData import *
+from bossInterface import *
 from timeFunc import *
+from userMsg import *
+from alarmModel import *
 
-personList = {}
+userList = {}
 
-def registerUser(name):
-    if name in personList:
-        return str(name) + '에 대한 알림 정보가 이미 존재합니다'
+def string_registerUser(userName):
+    if userName in userList:
+        return string_userAlreadyExist(userName)
     else:
-        personList[name] = enableDict.copy()
-        return str(name) + '\n'+ str(personList[name])+'에 대한 알림 정보를 생성했습니다'
+        userList[userName] = enableDict.copy()
+        return string_userRegisterSuccess(userName)
 
-def removeUser(name):
-    if name in personList:
-        del personList[name]
-        return str(name) + '에 대한 알림 정보를 삭제했습니다'
+def string_removeUser(userName):
+    if userName in userList:
+        del userList[userName]
+        return string_removeUserSuccess(userName)
     else:
-        return str(name) + '에 대한 알림 정보가 없습니다'
+        return string_accessUnavailableUser()
 
-def enableUserBossAlram(user,name):
-    if user in personList:
-        personList[user][name] = True
-        return '당신의 ' + name + ' 알림을 설정했습니다'
+def string_enableUserBossAlarm(userName,bossName):
+    if userName in userList:
+        userList[userName][bossName] = True
+        return string_msgEnableUserBossAlarm(bossName)
     else:
-        return '존재하지 않는 사용자입니다'
+        return string_accessUnavailableUser()
 
-def disableUserBossAlram(user,name):
-    if user in personList:
-        personList[user][name] = False
-        return '당신의 ' + name + ' 알림을 해제했습니다'
+def string_disableUserBossAlarm(userName,bossName):
+    if userName in userList:
+        userList[userName][bossName] = False
+        return string_msgDisableUserBossAlarm(bossName)
     else:
-        return '존재하지 않는 사용자입니다'
+        return string_accessUnavailableUser()
 
-def getMentionUser():
-    
-    now = getNow()
-    wd = getNowWeekday()
-    info = getAlramIndex(wd,now)
-    
-    if len(info) == 0:
-        return '보스 알림 설정을 모두 꺼뒀는지 확인하십시오'
 
-    bossName = getAlramName(info[0],info[1])
-    mentionlist = []
-    for user in personList:
-        for bos in bossName:
-            if personList[user][bos]:
-               mentionlist.append(user.name)
-               break
-    return mentionlist
+def string_getUserStatus(userName):
 
-def getUserStatus(name,discord):
+    if not(userName in userList):
+        return string_accessUnavailableUser()
 
-    if not(name in personList):
-        return '존재하지 않는 사용자입니다'
-        
-    txt = str(name) + '\n'
-    for bos in bossName:
-        txt += (bos + ' : ')
-        if personList[name][bos]:
+    userInfo = userList[userName]
+    txt = str(userName) + ' 설정 정보\n'
+    for bossName in userInfo:
+        txt += (bossName + ' : ')
+        if userInfo[bossName]:
             txt += '활성화\n'
         else:
             txt += '비활성화\n' 

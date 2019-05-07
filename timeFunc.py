@@ -1,24 +1,24 @@
 import datetime
 
-def timeCalcHM(hour,min):
+def second_calcSecondFromHM(hour,min):
     return hour * 3600 + min * 60
 
-def timeCalcHMS(hour,min,sec):
+def second_calcSecondFromHMS(hour,min,sec):
     return hour * 3600 + min * 60 + sec
 
-def timeCalcTime(t):
-    return t.hour * 3600 + t.minute * 60 + t.second
+def second_calcSecondFromDateTime(datetime):
+    return datetime.hour * 3600 + datetime.minute * 60 + datetime.second
 
-def getNow():
+def datetime_now():
     return datetime.datetime.utcnow() + datetime.timedelta(hours=9)
 
-def getNowWeekday():
+def int_nowWeekday():
     return (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).weekday()
 
-def getTime(sec):
+def datetime_fromSecond(sec):
     return str(datetime.timedelta(seconds = sec))
 
-def getTimeHM(sec):
+def string_fromHM(sec):
     t = (datetime.datetime.min + datetime.timedelta(seconds = sec)).time()
     return str('%02d' % t.hour) + ":" + str('%02d' % t.minute)
 
