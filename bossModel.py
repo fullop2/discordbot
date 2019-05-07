@@ -1,7 +1,7 @@
 from openpyxl import load_workbook
 import os
 
-imgdir = 'https://raw.githubusercontent.com/fullop2/discordbot/master/pic/'#os.environ['IMGDIR']
+imgdir = os.environ['IMGDIR']
 
 bossNameList = ['누베르','무라카','카란다','벨','오핀','쿠툼','크자카','가모스','귄트']
 
