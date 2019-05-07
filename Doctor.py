@@ -98,7 +98,7 @@ async def on_message(message):
         elif 'time'  == cmd:
             if len(args) == 2 :
                 if bool_validBossName(args[1]):
-                    value = list_bossAllTimeFromName(discord,args[1])
+                    value = list_bossAllTimeFromName(args[1])
                     rtMsg.title = str(value[1]) + '알림'
                     rtMsg.description = value[2]
                     rtMsg.image = value[3]
