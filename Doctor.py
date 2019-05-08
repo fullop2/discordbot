@@ -84,7 +84,7 @@ async def on_message(message):
             if bool_validBossName(args[1]):
                 rtMsg.description = string_enableBossAlram(args[1])
         # 특정 보스 전체 비활성화
-        elif 'disall' == cmd and checkPermission(message.author) and len(args) == 2\:
+        elif 'disall' == cmd and checkPermission(message.author) and len(args) == 2:
             if bool_validBossName(args[1]):
                 rtMsg.description = string_disableBossAlram(args[1])
 
