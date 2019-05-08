@@ -114,7 +114,7 @@ def list_getAllBossTime(bossName):
         for index in range(0,size_getTableLengthOnWeekday(weekday)) :
             for elementBossName in list_getBossListDay(weekday,index) :
                 if bossName == elementBossName :
-                    retlist.append([weekday,getAlarmTime(weekday, index)])
+                    retlist.append([weekday,second_getAlarmTime(weekday, index)])
     return retlist
 
 # 바로 다음 보스 일정 검색
