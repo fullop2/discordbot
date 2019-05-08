@@ -37,8 +37,10 @@ cmdListMsg = '검은사막 알림 명령어 목록\n\
 -list : 전체 등록 유저 확인'
 
 noPhoneMsg = '전화는 없습니다'
+
+bossNameMsg = '보스 목록\n가모스 귄트 누베르\n무라카 벨 오핀\n 카란다 쿠툼 크자카\n'
 def string_all():
-    return doctorMsg() + cmdListMsg + '\n\n' + noPhoneMsg
+    return doctorMsg() + cmdListMsg + '\n'+ bossNameMsg + '\n\n' + noPhoneMsg
 
 
 def string_onTimer():
