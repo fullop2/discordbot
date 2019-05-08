@@ -84,7 +84,7 @@ def list_bossAllTimeFromName(bossName):
         txt = ""
         for sche in timelist:
             txt += (weekday[sche[0]] + '요일 ' + str(string_fromHM(sche[1])) + '\n')
-        embedList = [name, txt,string_getBossImage(name),hex_getBossColor(name)]
+        embedList = [name, txt,string_getBossImage(bossName),hex_getBossColor(bossName)]
     else:
         embedList = ['설정 오류','잘못된 이름을 입력했거나 보스 알림 설정을 모두 꺼뒀는지 확인하십시오\n' + name,null,0xFF0000]
     return embedList
