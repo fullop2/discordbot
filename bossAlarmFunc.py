@@ -111,8 +111,8 @@ def string_disableBossAlram(name):
 def list_getAllBossTime(bossName):
     retlist = []    
     for weekday in range(0,7):
-        for index in range(0,getTableLengthOnWeekday(weekday)) :
-            for elementBossName in getBossListDay(weekday,index) :
+        for index in range(0,size_getTableLengthOnWeekday(weekday)) :
+            for elementBossName in list_getBossListDay(weekday,index) :
                 if bossName == elementBossName :
                     retlist.append([weekday,getAlarmTime(weekday, index)])
     return retlist

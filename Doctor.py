@@ -62,11 +62,11 @@ async def on_message(message):
     if message.author.bot or message.content == '' :
         return
     args = str(message.content).split()
-    rtMsg = makeEmbed('수술실','',None,0x1010FF)
+
     
     if args[0].startswith('-'):
         cmd = args[0][1:]
-        
+        rtMsg = makeEmbed('수술실','',None,0x1010FF)        
         # administrator command
         # 알림 시작
         if 'on' == cmd and checkPermission(message.author):
@@ -80,18 +80,13 @@ async def on_message(message):
             flag = False
             rtMsg.description = string_offTimer()
         # 특정 보스 전체 활성화
-        elif 'enall' == cmd and checkPermission(message.author):
-            if len(args) == 2 and bool_validBossName(args[1]):
+        elif 'enall' == cmd and checkPermission(message.author) and len(args) == 2:
+            if bool_validBossName(args[1]):
                 rtMsg.description = string_enableBossAlram(args[1])
-            else:
-                rtMsg.description = cmdListMsg
         # 특정 보스 전체 비활성화
-        elif 'disall' == cmd and checkPermission(message.author) \
-              and len(args) == 2  and bool_validBossName(args[1]):
-            if len(args) == 2  and bool_validBossName(args[1]):
+        elif 'disall' == cmd and checkPermission(message.author) and len(args) == 2\:
+            if bool_validBossName(args[1]):
                 rtMsg.description = string_disableBossAlram(args[1])
-            else:
-                rtMsg.description = cmdListMsg
 
         # basic user command
         # 다음 보스 시간
@@ -105,8 +100,6 @@ async def on_message(message):
                     rtMsg.color = value[4]
                 elif 'today' == args[1]:
                     return
-                else:
-                    rtMsg.description = cmdListMsg
             else:
                 value = list_alramBossWeekdayIndex()
                 rtMsg.title = str(value[1]) + '알림'
@@ -136,12 +129,17 @@ async def on_message(message):
             rtMsg.description = string_removeUser(message.author)
         # 전체 보스 설정 확인
         elif 'statall' == cmd :
-            rtMsg.description = getBossAllState()
+            value = list_bossAllState()
+            rtMsg.title = value[0]
+            rtMsg.description = value[1]
+            rtMsg.color = value[2]
         # 명령어 목록 출력
         else:
             rtMsg.description = string_all()
         await message.channel.send(embed = rtMsg)  
     else:
-        await message.channel.send(identify(str(message.content))) 
+        rtMsg = identify(str(message.content))
+        if rtMsg != '':
+            await message.channel.send(rtMsg) 
 
 app.run(token)
