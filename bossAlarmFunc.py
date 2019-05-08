@@ -44,7 +44,7 @@ def string_getBossName():
 # 보스 설정 표시
 def string_getState():
 
-    txt = '보스 목록'
+    txt = ''
     for bossName in list_getAllBossNames():
         txt += (bossName + ' : ')
         if bool_getValidBoss(bossName):

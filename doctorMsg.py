@@ -29,11 +29,12 @@ cmdListMsg = '검은사막 알림 명령어 목록\n\
 -dis (보스명) : 해당 보스 알림 해제\n\
 -time : 다음 보스 출현 시간\n\
 -time (보스명) : 보스 출현 전체 시간\n\
--stat : 자신의 알람 설정 확인\n\
+-stat : 자신의 알림 설정 확인\n\
 <관리자 명령어>\n\
 -enall (보스명) : 보스 알림 전체 설정\n\
 -disall (보스명) : 보스 알림 전체 해제\n\
--statall : 전체 보스 알림 확인'
+-statall : 전체 보스 알림 확인\n\
+-list : 전체 등록 유저 확인'
 
 noPhoneMsg = '전화는 없습니다'
 def string_all():
