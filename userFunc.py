@@ -53,7 +53,7 @@ def list_userList():
     txt = ''
     i = 0
     for userName in userList:
-        txt += userName .name     
+        txt += (userName.name + ' ')     
         i = i + 1
         if i > 3:
             i = 0
