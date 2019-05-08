@@ -19,9 +19,9 @@ def list_alramBossWeekdayIndex():
     for bossName in list_getBossListDay(timer[0],timer[1]) :
         bossNames += (bossName + ' ')
 
-    mixColor = 0xFFFFFF
+    mixColor = 0x000000
     for color in list_getBossColors():
-        mixColor = mixColor & hex_getBossColor(color)
+        mixColor = (~mixColor) & hex_getBossColor(color)
         
     return [deltaTime,bossNames,bossTime,alarmTime,mixColor]
 

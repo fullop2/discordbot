@@ -87,14 +87,17 @@ async def on_message(message):
         elif 'disall' == cmd and checkPermission(message.author) and len(args) == 2:
             if bool_validBossName(args[1]):
                 rtMsg.description = string_disableBossAlram(args[1])
-
+        elif 'list' == cmd and checkPermission(message.author):
+            value = list_userList()
+            rtMsg.title = value[0]
+            rtMsg.description = value[1]
         # basic user command
         # 다음 보스 시간
         elif 'time'  == cmd:
             if len(args) == 2 :
                 if bool_validBossName(args[1]):
                     value = list_bossAllTimeFromName(args[1])
-                    rtMsg.title = str(value[0]) + '알림'
+                    rtMsg.title = str(value[0]) + ' 알림'
                     rtMsg.description = value[1]
                     rtMsg.set_image(url = value[2])
                     rtMsg.color = value[3]

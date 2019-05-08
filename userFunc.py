@@ -48,3 +48,15 @@ def string_getUserStatus(userName):
         else:
             txt += '비활성화\n' 
     return txt
+
+def list_userList():
+    txt = ''
+    i = 0
+    for userName in userList:
+        txt += userName       
+        i = i + 1
+        if i > 3:
+            i = 0
+            txt += '\n'
+    return ['유저 목록',txt]
+        
