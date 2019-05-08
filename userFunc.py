@@ -53,10 +53,12 @@ def list_userList():
     txt = ''
     i = 0
     for userName in userList:
-        txt += userName       
+        txt += userName .name     
         i = i + 1
         if i > 3:
             i = 0
             txt += '\n'
+    if txt == '':
+        txt = '유저 목록이 없습니다'
     return ['유저 목록',txt]
         
