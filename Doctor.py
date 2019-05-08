@@ -94,10 +94,10 @@ async def on_message(message):
             if len(args) == 2 :
                 if bool_validBossName(args[1]):
                     value = list_bossAllTimeFromName(args[1])
-                    rtMsg.title = str(value[1]) + '알림'
-                    rtMsg.description = value[2]
-                    rtMsg.set_image(url = value[3])
-                    rtMsg.color = value[4]
+                    rtMsg.title = str(value[0]) + '알림'
+                    rtMsg.description = value[1]
+                    rtMsg.set_image(url = value[2])
+                    rtMsg.color = value[3]
                 elif 'today' == args[1]:
                     return
             else:
